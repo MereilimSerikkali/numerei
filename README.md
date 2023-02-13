@@ -1,14 +1,44 @@
-[README.md](https://github.com/MereionMission/blog.my-first-site/files/10724827/README.md)
+[README.md]
 <html>
-<h2 style = "color:FFC9F8; font size:60px; text-align:center;">
-HEEEEEEY. Call me Merei or Mereilim. I'm only 15 years old and I'm addicted to creating funny things on my laptop. One of them is this site merei.tk. It actually took me a long time just to figure out how to create my own domain. WOOHOO! I would also like to recommend the course "HTML, CSS, and Javascript for Web Developers" on Coursera. Of course, some details are very different due to the fact that the course is not so new, but still it taught me about applications such as Git, Github, NodeJS, Sublime text, etc.
-</h2>
-<footer>
-<a href = "https://www.instagram.com/merei4ka/"
-target = "_blank">
-<h3>
-Link for up to date events
-</h3>
-</a>
-</footer>
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        background-color: #f2f2f2;
+        font-family: Arial, sans-serif;
+      }
+
+      h1 {
+        color: #ff69b4;
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 50px;
+      }
+
+      .btn {
+        background-color: #ff69b4;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 30px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to our website!</h1>
+      <p>We are dedicated to providing a great user experience for our visitors.</p>
+      <a href="#" class="btn">Learn more</a>
+    </div>
+  </body>
 </html>
