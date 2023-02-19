@@ -37,15 +37,16 @@
         any kind of calculation that comes up to your mind
       </p>
     </section>
-
+    <video autoplay loop class="back-video" muted play-inline>
+        <source src="video.mp4" type="video/mp4">
     <main>
 
     </main>
     <script>
       const toggle_Btn = document.querySelector('.toggle_btn')
-      const toggle_btnIcon = document.querySelector('.toggle_btn i')
+      const toggle_btnIcon = document.querySelector('.toggle_Btn i')
       const dropdown_menu = document.querySelector('.dropdown_menu')
-      toggle_btn.onclick = function(){
+      toggle_Btn.onclick = function(){
         dropdown_menu.classList.toggle('open')
         const isOpen = dropdown_menu.classList.contains('open')
 
