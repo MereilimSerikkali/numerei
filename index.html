@@ -8,13 +8,8 @@
     <link rel = "stylesheet" href = "styles.css" />
   </head>
   <body>
-    <div class="header">
-
-        <video autoplay loop class = "back-video" muted plays-inline>
-            <source src = "video.mp4" type = "video/mp4">
-        </video>
-    </div>
     <header>
+      <div class = "navbar">
         <div class = "logo"><a href="#">Numerei</a></div>
         <ul class = "links">
           <li><a href="Home">Home</a></li>
@@ -24,9 +19,40 @@
         </ul>
         <a href = "#" class = "action_btn">Get started</a>
         <div class = "toggle_btn">
-            <i class="fa-solid fa-bars"></i>
-          </div>
+          <i class="fa-solid fa-bars"></i>
         </div>
+      </div>
+      <div class="dropdown_menu">
+        <li><a href="Home">Home</a></li>
+          <li><a href="About">About</a></li>
+          <li><a href="Calculators">Calculators</a></li>
+          <li><a href="Contact">Contact</a></li>
+          <li><a href = "#" class = "action_btn">Get started</a></li>
+      </div>
     </header>
+    <section id = "Home">
+      <h1>Welcome</h1>
+      <p>
+        Numerei provides services for <br/>
+        any kind of calculation that comes up to your mind
+      </p>
+    </section>
+
+    <main>
+
+    </main>
+    <script>
+      const toggle_btn = document.querySelector('.toggle_btn')
+      const toggle_btnIcon = document.querySelector('.toggle_btn i')
+      const dropdown_menu = document.querySelector('.dropdown_menu')
+      toggle_btn.onclick = function(){
+        dropdown_menu.classList.toggle('open')
+        const isOpen = dropdown_menu.classList.contains('open')
+
+        toggle_btnIcon.classList = isOpen
+        ? 'fa-solid fa-xmark'
+        : 'fa-solid fa-bars'
+      }
+    </script>
   </body>
 </html>
