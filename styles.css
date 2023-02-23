@@ -27,7 +27,7 @@ a {
 }
 
 a:hover {
-  color: #D72FC6;
+  color: grey;
 }
 
 
@@ -64,7 +64,7 @@ justify-content: space-between;
 }
 
 .action-btn {
-  background-color: #D72FC6;
+  background-color: grey;
   color: #fff;
   padding: 0.5rem 1 rem;
   border: none;
