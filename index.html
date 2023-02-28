@@ -1,72 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Numerei</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel = "stylesheet" href = "styles.css" />
   </head>
   <body>
     <header>
-      <div class="logo">
-        <h1>Numerei</h1>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#calculators">Calculators</a></li>
-          <li><a href="#contact">Contact</a></li>
+      <div class = "navbar">
+        <div class = "logo"><a href="#">NUMEREI</a></div>
+        <ul class = "links">
+          <li><a href="Home">Home</a></li>
+          <li><a href="About">About</a></li>
+          <li><a href="Calculators">Calculators</a></li>
+          <li><a href="Contact">Contact</a></li>
         </ul>
-      </nav>
+        <a href = "#" class = "action_btn">Get started</a>
+        <div class = "toggle_btn">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+      <div class="dropdown_menu">
+        <li><a href="Home">Home</a></li>
+          <li><a href="About">About</a></li>
+          <li><a href="Calculators">Calculators</a></li>
+          <li><a href="Contact">Contact</a></li>
+          <li><a href = "#" class = "action_btn">Get started</a></li>
+      </div>
     </header>
-
+    <section id = "Home">
+      <h1>Welcome</h1>
+      <p>
+        Numerei provides services for <br/>
+        any kind of calculation that comes up to your mind
+      </p>
+    </section>
+    <video autoplay loop class="back-video" muted play-inline>
+        <source src="video.mp4" type="video/mp4">
     <main>
-      <section id="home">
-        <div class="hero">
-          <h2>Numerei provides services for any kind of calculation that comes up to your mind</h2>
-        </div>
-      </section>
 
-      <section id="about">
-        <div class="container">
-          <h2>About Numerei</h2>
-          <p>Our calculation services are proved to be 100% correct at all times. Numerei is the company the whole nation uses for its comfortable usability.</p>
-        </div>
-      </section>
-
-      <section id="calculators">
-        <div class="container">
-          <h2>Calculators</h2>
-          <div class="calculator-container">
-            <div class="calculator-box" id="hex-to-binary">
-              <h3>Hex Code to Binary Code</h3>
-            </div>
-            <div class="calculator-box" id="decimal-to-binary">
-              <h3>Decimal Code to Binary Code</h3>
-            </div>
-          </div>
-          <div class="input-output-container">
-            <div class="input-container">
-              <label for="input">Input:</label>
-              <input type="text" id="input">
-            </div>
-            <div class="output-container">
-              <label for="output">Output:</label>
-              <input type="text" id="output" readonly>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact">
-        <div class="container">
-          <h2>Contact Us</h2>
-          <p>Follow us on Instagram:</p>
-          <a href="https://www.instagram.com/merei4ka" target="_blank"><i class="fab fa-instagram"></i>@merei4ka</a>
-        </div>
-      </section>
     </main>
+    <script>
+      const toggleBtn = document.querySelector('.toggle_btn')
+      const toggleBtnIcon = document.querySelector('.toggle_Btn i')
+      const dropDownMenu = document.querySelector('.dropdown_menu')
+      toggle_Btn.onclick = function(){
+        dropDownMenu.classList.toggle('open')
+        const isOpen = dropDownMenu.classList.contains('open')
 
-    <script src="script.js"></script>
+        toggle_btnIcon.classList = isOpen
+        ? 'fa-solid fa-xmark'
+        : 'fa-solid fa-bars'
+      }
+    </script>
+
   </body>
 </html>
