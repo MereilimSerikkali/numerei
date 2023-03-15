@@ -43,6 +43,7 @@ body{
 @media (max-width:768px){
   .mobile-menu-bar{
     display: block;
+    float: left;
   }
 
   .menu a:hover{
