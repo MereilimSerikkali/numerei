@@ -37,14 +37,13 @@ header {
 }
 
 .navbar {
-width: 100%;
-height: 60px;
-max-width: 1200px;
-margin: 0 auto;
-display: flex;
-align-items: center;
-justify-content: space-between;
-
+  width: 100%;
+  height: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .navbar .logo a {
   font-size: 1.5rem;
@@ -66,22 +65,22 @@ justify-content: space-between;
 .action-btn {
   background-color: grey;
   color: #fff;
-  padding: 0.5rem 1 rem;
+  padding: 0.5rem 1rem;
   border: none;
   outline: none;
-  border-radius: 20 px;
+  border-radius: 20px;
   font-size: 0.8rem;
   font-weight: bold;
   cursor: pointer;
   transition: scale 0.2 ease;
 }
 
-.action_btn:hover {
+.action-btn:hover {
   scale: 1.05;
   color: #fff;
 }
 
-.action_btn:active {
+.action-btn:active {
   scale: 0.95;
 }
 
@@ -109,7 +108,7 @@ justify-content: space-between;
   justify-content: center;
 }
 
-.dropdown_menu .action_btn {
+.dropdown_menu .action-btn {
   width:100%;
   display: flex;
   justify-content: center;
@@ -136,12 +135,14 @@ section#Home {
     display:none;
   }
   .navbar .toggle_btn {
-  display:block;
+    display:block;
   }
   .dropdown_menu {
-  display: block;
+    display: block;
   }
-
+  .dropdown_menu li:first-of-type {
+    display: none;
+  }
 }
 
 @media (max-width: 576px) {
