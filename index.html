@@ -1,79 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ... existing head content ... -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NUMEREI</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Comic Sans MS', cursive; 
+    }
+
+    body {
+      background-color: #ffe6f2; 
+      color: #e43c7f; 
+      margin: 0; /* Remove default body margin */
+    }
+
+    header {
+      background-color: #ff7eb6;
+      padding: 10px;
+      text-align: center;
+      position: relative;
+    }
+
+    h1, h2 {
+      color: #e43c7f;
+      margin-bottom: 20px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      background-color: #ff7eb6;
+      padding: 10px;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.3s ease-in-out;
+      font-size: 1.2rem;
+    }
+
+    nav a:hover {
+      color: #ffd8ff;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .calculator-section {
+      background-color: #ffd8ff; 
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+      display: none; 
+    }
+
+    input, button {
+      margin-bottom: 10px;
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .convert-button {
+      background-color: #ff7eb6;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    #aboutSection {
+      display: none;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    #helloKitty {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      max-width: 200px; 
+    }
+
+    #kirby {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      max-width: 200px;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <!-- ... existing header content ... -->
-    <div class="dropdown_menu">
-      <ul>
-        <li><a href="Home">Home</a></li>
-        <li><a href="About">About</a></li>
-        <li id="calculatorTab"><a href="#">Calculators</a></li>
-        <li><a href="Contact">Contact</a></li>
-      </ul>
-      <!-- Add the binary converter section here -->
-      <div id="binaryConverter" class="action-btn" style="display: none;">
-        <p>Enter a number in binary number system:</p>
-        <input type="text" id="binaryInput" placeholder="Enter binary number">
-        <button onclick="convertToDecimal()">Convert to Decimal</button>
-        <button onclick="convertToHexadecimal()">Convert to Hexadecimal</button>
-        <p id="binaryResult"></p>
-      </div>
-    </div>
+    <h1>NUMEREI</h1>
   </header>
-  <section id="Home">
-    <!-- ... existing Home section content ... -->
-    <h1>Welcome</h1>
-    <p>
-      Numerei provides services for <br>
-      any kind of calculation that comes up to your mind
-    </p>
-  </section>
-  <video autoplay loop class="back-video" muted playsinline>
-    <source src="video.mp4" type="video/mp4">
-  </video>
-  <main></main>
+
+  <nav>
+    <a href="#" id="calculatorLink">Calculators</a>
+    <a href="#" id="aboutLink">About</a>
+  </nav>
+
+  <div class="container">
+    <img src="kirby.gif" id="kirby">
+
+    <div class="calculator-section" id="decimalToBinaryHexConverter">
+      <h2>Decimal to Binary/Hexadecimal</h2>
+      <input type="text" id="decimalInput" placeholder="Enter decimal number">
+      <button class="convert-button" onclick="convertToBinary()">Convert to Binary</button>
+      <button class="convert-button" onclick="convertToHexadecimal()">Convert to Hexadecimal</button>
+      <p id="decimalResult"></p>
+    </div>
+
+    <div class="calculator-section" id="hexToBinaryDecimalConverter">
+      <h2>Hexadecimal to Binary/Decimal</h2>
+      <input type="text" id="hexInput" placeholder="Enter hexadecimal number">
+      <button class="convert-button" onclick="convertHexToBinary()">Convert to Binary</button>
+      <button class="convert-button" onclick="convertHexToDecimal()">Convert to Decimal</button>
+      <p id="hexResult"></p>
+    </div>
+
+    <div class="calculator-section" id="binaryToHexDecimalConverter">
+      <h2>Binary to Hexadecimal/Decimal</h2>
+      <input type="text" id="binaryInput" placeholder="Enter binary number">
+      <button class="convert-button" onclick="convertBinaryToHex()">Convert to Hexadecimal</button>
+      <button class="convert-button" onclick="convertBinaryToDecimal()">Convert to Decimal</button>
+      <p id="binaryResult"></p>
+    </div>
+
+    <div id="aboutSection">
+      <h2>About NUMEREI</h2>
+      <p>₊˚ NUMEREI provides services for calculating numbers in different number systems. We are ready to help anyone out₊˚ෆ</p>
+    </div>
+  </div>
+
+  <img src="hello_kitty.png" id="helloKitty">
+
   <script>
-    // ... existing script content ...
+    const calculatorLink = document.getElementById('calculatorLink');
+    const aboutLink = document.getElementById('aboutLink');
+    const decimalToBinaryHexConverter = document.getElementById('decimalToBinaryHexConverter');
+    const hexToBinaryDecimalConverter = document.getElementById('hexToBinaryDecimalConverter');
+    const binaryToHexDecimalConverter = document.getElementById('binaryToHexDecimalConverter');
+    const helloKittyImage = document.getElementById('helloKitty');
+    const hatsuneMikuImage = document.getElementById('hatsuneMiku');
+    const aboutSection = document.getElementById('aboutSection');
 
-    function isBinaryNumber(input) {
-      // Check if the input is a valid binary number
-      return /^[01]+$/.test(input);
-    }
+    decimalToBinaryHexConverter.style.display = 'block';
+    hexToBinaryDecimalConverter.style.display = 'block';
+    binaryToHexDecimalConverter.style.display = 'block';
+    aboutSection.style.display = 'none';
 
-    function convertToDecimal() {
-      var binaryInput = document.getElementById('binaryInput').value;
-      var resultElement = document.getElementById('binaryResult');
+    calculatorLink.addEventListener('click', function() {
+      decimalToBinaryHexConverter.style.display = 'block';
+      hexToBinaryDecimalConverter.style.display = 'block';
+      binaryToHexDecimalConverter.style.display = 'block';
+      aboutSection.style.display = 'none';
+    });
 
-      if (isBinaryNumber(binaryInput)) {
-        var decimalResult = parseInt(binaryInput, 2);
-        resultElement.textContent = 'Decimal Result: ' + decimalResult;
+    aboutLink.addEventListener('click', function() {
+      decimalToBinaryHexConverter.style.display = 'none';
+      hexToBinaryDecimalConverter.style.display = 'none';
+      binaryToHexDecimalConverter.style.display = 'none';
+      aboutSection.style.display = 'block';
+    });
+
+    function convertToBinary() {
+      const decimalInput = document.getElementById('decimalInput').value;
+      const decimalResultElement = document.getElementById('decimalResult');
+
+      if (isValidDecimal(decimalInput)) {
+        const binaryResult = (parseInt(decimalInput, 10)).toString(2);
+        decimalResultElement.textContent = `Binary Result: ${binaryResult}`;
       } else {
-        resultElement.textContent = 'You have entered a wrong input. Try entering again a number in a BINARY number system.';
+        decimalResultElement.textContent = 'Invalid input. Please enter a valid decimal number.';
       }
     }
 
     function convertToHexadecimal() {
-      var binaryInput = document.getElementById('binaryInput').value;
-      var resultElement = document.getElementById('binaryResult');
+      const decimalInput = document.getElementById('decimalInput').value;
+      const decimalResultElement = document.getElementById('decimalResult');
 
-      if (isBinaryNumber(binaryInput)) {
-        var hexadecimalResult = parseInt(binaryInput, 2).toString(16).toUpperCase();
-        resultElement.textContent = 'Hexadecimal Result: ' + hexadecimalResult;
+      if (isValidDecimal(decimalInput)) {
+        const hexadecimalResult = (parseInt(decimalInput, 10)).toString(16).toUpperCase();
+        decimalResultElement.textContent = `Hexadecimal Result: ${hexadecimalResult}`;
       } else {
-        resultElement.textContent = 'You have entered a wrong input. Try entering again a number in a BINARY number system.';
+        decimalResultElement.textContent = 'Invalid input. Please enter a valid decimal number.';
       }
     }
 
-    // Add logic to show/hide binary converter on "Calculators" tab click
-    var calculatorTab = document.getElementById('calculatorTab');
-    var binaryConverter = document.getElementById('binaryConverter');
+    function convertHexToBinary() {
+      const hexInput = document.getElementById('hexInput').value;
+      const hexResultElement = document.getElementById('hexResult');
 
-    calculatorTab.addEventListener('click', function() {
-      binaryConverter.style.display = binaryConverter.style.display === 'none' ? 'block' : 'none';
-    });
+      if (isValidHex(hexInput)) {
+        const binaryResult = parseInt(hexInput, 16).toString(2);
+        hexResultElement.textContent = `Binary Result: ${binaryResult}`;
+      } else {
+        hexResultElement.textContent = 'Invalid input. Please enter a valid hexadecimal number.';
+      }
+    }
+
+    function convertHexToDecimal() {
+      const hexInput = document.getElementById('hexInput').value;
+      const hexResultElement = document.getElementById('hexResult');
+
+      if (isValidHex(hexInput)) {
+        const decimalResult = parseInt(hexInput, 16);
+        hexResultElement.textContent = `Decimal Result: ${decimalResult}`;
+      } else {
+        hexResultElement.textContent = 'Invalid input. Please enter a valid hexadecimal number.';
+      }
+    }
+
+    function convertBinaryToHex() {
+      const binaryInput = document.getElementById('binaryInput').value;
+      const binaryResultElement = document.getElementById('binaryResult');
+
+      if (isValidBinary(binaryInput)) {
+        const hexadecimalResult = parseInt(binaryInput, 2).toString(16).toUpperCase();
+        binaryResultElement.textContent = `Hexadecimal Result: ${hexadecimalResult}`;
+      } else {
+        binaryResultElement.textContent = 'Invalid input. Please enter a valid binary number.';
+      }
+    }
+
+    function convertBinaryToDecimal() {
+      const binaryInput = document.getElementById('binaryInput').value;
+      const binaryResultElement = document.getElementById('binaryResult');
+
+      if (isValidBinary(binaryInput)) {
+        const decimalResult = parseInt(binaryInput, 2);
+        binaryResultElement.textContent = `Decimal Result: ${decimalResult}`;
+      } else {
+        binaryResultElement.textContent = 'Invalid input. Please enter a valid binary number.';
+      }
+    }
+
+    function isValidDecimal(input) {
+      return /^[0-9]+$/.test(input);
+    }
+
+    function isValidHex(input) {
+      return /^[0-9A-Fa-f]+$/.test(input);
+    }
+
+    function isValidBinary(input) {
+      return /^[01]+$/.test(input);
+    }
+
+    helloKittyImage.src = 'hello_kitty.png';
   </script>
 </body>
 </html>
