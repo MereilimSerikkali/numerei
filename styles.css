@@ -5,19 +5,19 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-.back-video{
-    position: absolute;
-    right:0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
+.back-video {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
 }
 
-li{
-  list-style:none;
+li {
+  list-style: none;
 }
 
 a {
@@ -29,7 +29,6 @@ a {
 a:hover {
   color: grey;
 }
-
 
 header {
   position: relative;
@@ -45,6 +44,7 @@ header {
   align-items: center;
   justify-content: space-between;
 }
+
 .navbar .logo a {
   font-size: 1.5rem;
   font-weight: bold;
@@ -72,27 +72,27 @@ header {
   font-size: 0.8rem;
   font-weight: bold;
   cursor: pointer;
-  transition: scale 0.2 ease;
+  transition: transform 0.2s ease; /* Fix typo from "scale" to "transform" */
 }
 
 .action-btn:hover {
-  scale: 1.05;
+  transform: scale(1.05);
   color: #fff;
 }
 
 .action-btn:active {
-  scale: 0.95;
+  transform: scale(0.95);
 }
 
 .dropdown_menu {
-  display:none;
+  display: none;
   position: absolute;
   right: 2rem;
-  top:60px;
-  height:0;
+  top: 60px;
+  height: 0;
   width: 300px;
-  background: rgba(255,255,250,0.1)
-  backdrop-filter blur(15px);
+  background: rgba(255, 255, 250, 0.1);
+  backdrop-filter: blur(15px);
   border-radius: 10px;
   overflow: hidden;
 }
@@ -109,13 +109,13 @@ header {
 }
 
 .dropdown_menu .action-btn {
-  width:100%;
+  width: 100%;
   display: flex;
   justify-content: center;
 }
 
 section#Home {
-  height: calc(100vh - 60px) ;
+  height: calc(100vh - 60px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -125,17 +125,17 @@ section#Home {
 }
 
 #Home h1 {
-  font-size:3rem;
+  font-size: 3rem;
   margin-bottom: 1rem;
 }
 
 @media (max-width: 992px) {
   .navbar .links,
-  .navbar .action-btn{
-    display:none;
+  .navbar .action-btn {
+    display: none;
   }
   .navbar .toggle_btn {
-    display:block;
+    display: block;
   }
   .dropdown_menu {
     display: block;
@@ -146,18 +146,8 @@ section#Home {
 }
 
 @media (max-width: 576px) {
-  .dropdown_menu{
+  .dropdown_menu {
     left: 2rem;
     width: unset;
   }
-}
-.back-video{
-    position: absolute;
-    right:0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
 }
