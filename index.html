@@ -84,19 +84,13 @@
       text-align: center;
     }
 
-    #helloKitty {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      max-width: 200px; 
+    #kirby {
+      position: absolute;
+      top: 10;
+      left: 0px;
+      max-width: 50px;
     }
 
-    #kirby {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      max-width: 200px;
-    }
   </style>
 </head>
 <body>
@@ -141,8 +135,6 @@
       <p>₊˚ NUMEREI provides services for calculating numbers in different number systems. We are ready to help anyone out₊˚ෆ</p>
     </div>
   </div>
-
-  <img src="hello_kitty.png" id="helloKitty">
 
   <script>
     const calculatorLink = document.getElementById('calculatorLink');
@@ -256,8 +248,6 @@
     function isValidBinary(input) {
       return /^[01]+$/.test(input);
     }
-
-    helloKittyImage.src = 'hello_kitty.png';
   </script>
 </body>
 </html>
