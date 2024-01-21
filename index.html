@@ -1,74 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <!-- ... existing head content ... -->
-</head>
-<body>
-  <header>
-    <!-- ... existing header content ... -->
-    <div class="dropdown_menu">
-      <ul>
-        <li><a href="Home">Home</a></li>
-        <li><a href="About">About</a></li>
-        <li id="calculatorTab"><a href="#">Calculators</a></li>
-        <li><a href="Contact">Contact</a></li>
-      </ul>
-      <!-- Add the binary converter section here -->
-      <div id="binaryConverter" class="action-btn" style="display: none;">
-        <p>Enter a number in binary number system:</p>
-        <input type="text" id="binaryInput" placeholder="Enter binary number">
-        <button onclick="convertToDecimal()">Convert to Decimal</button>
-        <button onclick="convertToHexadecimal()">Convert to Hexadecimal</button>
-        <p id="binaryResult"></p>
+  <head>
+    <!-- ... existing head content ... -->
+  </head>
+  <body>
+    <header>
+      <!-- ... existing header content ... -->
+      <div class="dropdown_menu">
+        <ul>
+          <li><a href="Home">Home</a></li>
+          <li><a href="About">About</a></li>
+          <li id="calculatorTab"><a href="#">Calculators</a></li>
+          <li><a href="Contact">Contact</a></li>
+        </ul>
+        <!-- Add the binary converter section here -->
+        <div id="binaryConverter" class="action-btn" style="display: none;">
+          <p>Enter a number in binary number system:</p>
+          <input type="text" id="binaryInput" placeholder="Enter binary number">
+          <button onclick="convertToDecimal()">Convert to Decimal</button>
+          <button onclick="convertToHexadecimal()">Convert to Hexadecimal</button>
+          <p id="binaryResult"></p>
+        </div>
       </div>
-    </div>
-  </header>
-  <section id="Home">
-    <!-- ... existing Home section content ... -->
-  </section>
-  <video autoplay loop class="back-video" muted playsinline>
-    <source src="video.mp4" type="video/mp4">
-  </video>
-  <main></main>
-  <script>
-    // ... existing script content ...
+    </header>
+    <section id="Home">
+      <!-- ... existing Home section content ... -->
+      <h1>Welcome</h1>
+      <p>
+        Numerei provides services for <br>
+        any kind of calculation that comes up to your mind
+      </p>
+    </section>
+    <video autoplay loop class="back-video" muted playsinline>
+      <source src="video.mp4" type="video/mp4">
+    </video>
+    <main></main>
+    <script>
+      // ... existing script content ...
 
-    function isBinaryNumber(input) {
-      // Check if the input is a valid binary number
-      return /^[01]+$/.test(input);
-    }
-
-    function convertToDecimal() {
-      var binaryInput = document.getElementById('binaryInput').value;
-      var resultElement = document.getElementById('binaryResult');
-
-      if (isBinaryNumber(binaryInput)) {
-        var decimalResult = parseInt(binaryInput, 2);
-        resultElement.textContent = 'Decimal Result: ' + decimalResult;
-      } else {
-        resultElement.textContent = 'You have entered a wrong input. Try entering again a number in a BINARY number system.';
+      function isBinaryNumber(input) {
+        // Check if the input is a valid binary number
+        return /^[01]+$/.test(input);
       }
-    }
 
-    function convertToHexadecimal() {
-      var binaryInput = document.getElementById('binaryInput').value;
-      var resultElement = document.getElementById('binaryResult');
+      function convertToDecimal() {
+        var binaryInput = document.getElementById('binaryInput').value;
+        var resultElement = document.getElementById('binaryResult');
 
-      if (isBinaryNumber(binaryInput)) {
-        var hexadecimalResult = parseInt(binaryInput, 2).toString(16).toUpperCase();
-        resultElement.textContent = 'Hexadecimal Result: ' + hexadecimalResult;
-      } else {
-        resultElement.textContent = 'You have entered a wrong input. Try entering again a number in a BINARY number system.';
+        if (isBinaryNumber(binaryInput)) {
+          var decimalResult = parseInt(binaryInput, 2);
+          resultElement.textContent = 'Decimal Result: ' + decimalResult;
+        } else {
+          resultElement.textContent = 'You have entered a wrong input. Try entering again a number in a BINARY number system.';
+        }
       }
-    }
 
-    // Add logic to show/hide binary converter on "Calculators" tab click
-    var calculatorTab = document.getElementById('calculatorTab');
-    var binaryConverter = document.getElementById('binaryConverter');
+      function convertToHexadecimal() {
+        var binaryInput = document.getElementById('binaryInput').value;
+        var resultElement = document.getElementById('binaryResult');
 
-    calculatorTab.addEventListener('click', function() {
-      binaryConverter.style.display = binaryConverter.style.display === 'none' ? 'block' : 'none';
-    });
-  </script>
-</body>
+        if (isBinaryNumber(binaryInput)) {
+          var hexadecimalResult = parseInt(binaryInput, 2).toString(16).toUpperCase();
+          resultElement.textContent = 'Hexadecimal Result: ' + hexadecimalResult;
+        } else {
+          resultElement.textContent = 'You have entered a wrong input. Try entering again a number in a BINARY number system.';
+        }
+      }
+
+      // Add logic to show/hide binary converter on "Calculators" tab click
+      var calculatorTab = document.getElementById('calculatorTab');
+      var binaryConverter = document.getElementById('binaryConverter');
+
+      calculatorTab.addEventListener('click', function() {
+        binaryConverter.style.display = binaryConverter.style.display === 'none' ? 'block' : 'none';
+      });
+    </script>
+  </body>
 </html>
